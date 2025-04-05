@@ -1,0 +1,155 @@
+examples/prettyprint.cc:176:85: performance: Function parameter 'indent_chars' should be passed by const reference. [passedByValue]
+static std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars) {
+                                                                                    ^
+examples/prettyprint.cc:248:76: performance: Function parameter 'indent_chars' should be passed by const reference. [passedByValue]
+static std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars) {
+                                                                           ^
+examples/serialize.cc:175:31: style: Variable 'keep_whitespace' is assigned a value that is never used. [unreadVariable]
+  bool keep_whitespace        = preserve_whitespace.find(key) != std::string::npos;
+                              ^
+examples/serialize.cc:176:31: style: Variable 'is_inline' is assigned a value that is never used. [unreadVariable]
+  bool is_inline              = nonbreaking_inline.find(key) != std::string::npos;
+                              ^
+examples/serialize.cc:226:34: style: Variable 'is_inline' is assigned a value that is never used. [unreadVariable]
+  bool is_inline                 = nonbreaking_inline.find(key) != std::string::npos;
+                                 ^
+src/attribute.c:29:24: style:inconclusive: Function 'gumbo_get_attribute' argument 1 names different: declaration 'attrs' definition 'attributes'. [funcArgNamesDifferent]
+    const GumboVector* attributes, const char* name) {
+                       ^
+src/gumbo.h:285:56: note: Function 'gumbo_get_attribute' argument 1 names different: declaration 'attrs' definition 'attributes'.
+GumboAttribute* gumbo_get_attribute(const GumboVector* attrs, const char* name);
+                                                       ^
+src/attribute.c:29:24: note: Function 'gumbo_get_attribute' argument 1 names different: declaration 'attrs' definition 'attributes'.
+    const GumboVector* attributes, const char* name) {
+                       ^
+src/error.c:270:37: style:inconclusive: Function 'gumbo_init_errors' argument 1 names different: declaration 'errors' definition 'parser'. [funcArgNamesDifferent]
+void gumbo_init_errors(GumboParser* parser) {
+                                    ^
+src/error.h:191:52: note: Function 'gumbo_init_errors' argument 1 names different: declaration 'errors' definition 'parser'.
+void gumbo_init_errors(struct GumboInternalParser* errors);
+                                                   ^
+src/error.c:270:37: note: Function 'gumbo_init_errors' argument 1 names different: declaration 'errors' definition 'parser'.
+void gumbo_init_errors(GumboParser* parser) {
+                                    ^
+src/error.c:274:40: style:inconclusive: Function 'gumbo_destroy_errors' argument 1 names different: declaration 'errors' definition 'parser'. [funcArgNamesDifferent]
+void gumbo_destroy_errors(GumboParser* parser) {
+                                       ^
+src/error.h:194:55: note: Function 'gumbo_destroy_errors' argument 1 names different: declaration 'errors' definition 'parser'.
+void gumbo_destroy_errors(struct GumboInternalParser* errors);
+                                                      ^
+src/error.c:274:40: note: Function 'gumbo_destroy_errors' argument 1 names different: declaration 'errors' definition 'parser'.
+void gumbo_destroy_errors(GumboParser* parser) {
+                                       ^
+src/parser.c:1675:65: style:inconclusive: Function 'gumbo_normalize_svg_tagname' argument 1 names different: declaration 'tagname' definition 'tag'. [funcArgNamesDifferent]
+const char* gumbo_normalize_svg_tagname(const GumboStringPiece* tag) {
+                                                                ^
+src/gumbo.h:198:65: note: Function 'gumbo_normalize_svg_tagname' argument 1 names different: declaration 'tagname' definition 'tag'.
+const char* gumbo_normalize_svg_tagname(const GumboStringPiece* tagname);
+                                                                ^
+src/parser.c:1675:65: note: Function 'gumbo_normalize_svg_tagname' argument 1 names different: declaration 'tagname' definition 'tag'.
+const char* gumbo_normalize_svg_tagname(const GumboStringPiece* tag) {
+                                                                ^
+src/parser.c:4076:61: style:inconclusive: Function 'gumbo_parse_with_options' argument 3 names different: declaration 'buffer_length' definition 'length'. [funcArgNamesDifferent]
+    const GumboOptions* options, const char* buffer, size_t length) {
+                                                            ^
+src/gumbo.h:662:61: note: Function 'gumbo_parse_with_options' argument 3 names different: declaration 'buffer_length' definition 'length'.
+    const GumboOptions* options, const char* buffer, size_t buffer_length);
+                                                            ^
+src/parser.c:4076:61: note: Function 'gumbo_parse_with_options' argument 3 names different: declaration 'buffer_length' definition 'length'.
+    const GumboOptions* options, const char* buffer, size_t length) {
+                                                            ^
+src/parser.c:1811:18: style: Local variable 'current_node' shadows outer variable [shadowVariable]
+      GumboNode* current_node = state->_active_formatting_elements.data[j];
+                 ^
+src/parser.c:1797:14: note: Shadowed declaration
+  GumboNode* current_node = get_current_node(parser);
+             ^
+src/parser.c:1811:18: note: Shadow variable
+      GumboNode* current_node = state->_active_formatting_elements.data[j];
+                 ^
+src/parser.c:1997:23: style: Local variable 'i' shadows outer variable [shadowVariable]
+    for (unsigned int i = 0; i < temp.length; ++i) {
+                      ^
+src/parser.c:1806:21: note: Shadowed declaration
+  for (unsigned int i = 0; i < 8; ++i) {
+                    ^
+src/parser.c:1997:23: note: Shadow variable
+    for (unsigned int i = 0; i < temp.length; ++i) {
+                      ^
+src/parser.c:2934:24: style: Local variable 'state' shadows outer variable [shadowVariable]
+    GumboInsertionMode state = parser->_parser_state->_insertion_mode;
+                       ^
+src/parser.c:2387:21: note: Shadowed declaration
+  GumboParserState* state = parser->_parser_state;
+                    ^
+src/parser.c:2934:24: note: Shadow variable
+    GumboInsertionMode state = parser->_parser_state->_insertion_mode;
+                       ^
+src/vector.c:96:16: style: Unsigned expression 'index' can't be negative so it is unnecessary to test it. [unsignedPositive]
+  assert(index >= 0);
+               ^
+src/vector.c:116:16: style: Unsigned expression 'index' can't be negative so it is unnecessary to test it. [unsignedPositive]
+  assert(index >= 0);
+               ^
+src/vector.c:106:47: style:inconclusive: Function 'gumbo_vector_remove' argument 2 names different: declaration 'element' definition 'node'. [funcArgNamesDifferent]
+    struct GumboInternalParser* parser, void* node, GumboVector* vector) {
+                                              ^
+src/vector.h:56:47: note: Function 'gumbo_vector_remove' argument 2 names different: declaration 'element' definition 'node'.
+    struct GumboInternalParser* parser, void* element, GumboVector* vector);
+                                              ^
+src/vector.c:106:47: note: Function 'gumbo_vector_remove' argument 2 names different: declaration 'element' definition 'node'.
+    struct GumboInternalParser* parser, void* node, GumboVector* vector) {
+                                              ^
+tests/attribute.cc:37:1: error: syntax error [syntaxError]
+TEST_F(GumboAttributeTest, GetAttribute) {
+^
+tests/char_ref.cc:54:1: error: syntax error [syntaxError]
+TEST_F(CharRefTest, Whitespace) {
+^
+tests/parser.cc:82:1: error: syntax error [syntaxError]
+TEST_F(GumboParserTest, NullDocument) {
+^
+tests/string_buffer.cc:42:1: error: syntax error [syntaxError]
+TEST_F(GumboStringBufferTest, Reserve) {
+^
+tests/string_piece.cc:40:1: error: syntax error [syntaxError]
+TEST_F(GumboStringPieceTest, NotEqual_DifferingCase) {
+^
+tests/test_utils.cc:156:38: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour [shiftTooManyBitsSigned]
+  assert(stats->bytes_allocated < (1 << 31));
+                                     ^
+tests/test_utils.cc:156:38: error: Signed integer overflow for expression '1<<31'. [integerOverflow]
+  assert(stats->bytes_allocated < (1 << 31));
+                                     ^
+tests/tokenizer.cc:54:1: error: syntax error [syntaxError]
+TEST(GumboTagEnumTest, TagEnumIncludesAllTags) {
+^
+tests/utf8.cc:52:1: error: syntax error [syntaxError]
+TEST_F(Utf8Test, EmptyString) {
+^
+tests/vector.cc:67:1: error: syntax error [syntaxError]
+TEST_F(GumboVectorTest, Init) {
+^
+tests/test_utils.cc:51:0: style: The function 'GetAndAssertBody' is never used. [unusedFunction]
+
+^
+tests/test_utils.cc:44:0: style: The function 'GetAttribute' is never used. [unusedFunction]
+
+^
+tests/test_utils.cc:40:0: style: The function 'GetAttributeCount' is never used. [unusedFunction]
+
+^
+src/parser.c:4173:0: style: The function 'gumbo_destroy_node' is never used. [unusedFunction]
+
+^
+src/parser.c:1675:0: style: The function 'gumbo_normalize_svg_tagname' is never used. [unusedFunction]
+
+^
+src/string_piece.c:42:0: style: The function 'gumbo_string_copy' is never used. [unusedFunction]
+
+^
+src/tag.c:93:0: style: The function 'gumbo_tag_enum' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
