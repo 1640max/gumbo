@@ -1,23 +1,35 @@
-name: cppcheck-action-test
-on: [push]
+name: cppcheck
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
-    name: cppcheck-test
+  cppcheck:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-          
-      - name: cppcheck
-        uses: deep5050/cppcheck-action@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
-          
-        
-      - name: publish report    
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'main'
-    permissions:
-      contents: write
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install cppcheck
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cppcheck
+
+    - name: Build
+      run: |
+        ./autogen.sh
+        ./configure
+        make
+
+    - name: Run cppcheck with SARIF output
+      run: |
+        cppcheck --enable=all --inconclusive --sarif --output-file=cppcheck.sarif .
+
+    - name: Upload SARIF to GitHub
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: cppcheck.sarif
