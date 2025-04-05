@@ -87,9 +87,28 @@ jobs:
       run: |
         ./autogen.sh
         ./configure
+        make clean
         make
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+    
+    - name: Install cppcheck
+      run: sudo apt-get install -y cppcheck
+
+    - name: Run cppcheck with xml output
+      run: cppcheck --enable=all --xml --output-file=report.xml .
+
+    - name: Converting cppcheck report to .sarif
+      uses: Flast/cppcheck-sarif@v2
+      with:
+        input: report.xml
+        output: report.sarif
+
+    - name: Upload SARIF to GitHub
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: report.sarif
+        category: cppcheck
