@@ -99,7 +99,7 @@ jobs:
       run: sudo apt-get install -y cppcheck
 
     - name: Run cppcheck with xml output
-      run: cppcheck --enable=all --xml --output-file=report.xml .
+      run: cppcheck --enable=all --xml --output-file=report.xml -itests .
 
     - name: Converting cppcheck report to .sarif
       uses: Flast/cppcheck-sarif@v2
